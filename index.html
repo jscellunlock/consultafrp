@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <title>Consulta de FRP via IMEI</title>
+
+    <meta
+      name="description"
+      content="Consulte se o aparelho suporta FRP via IMEI antes de fazer o serviço. Verificação rápida e segura."
+    />
+
+    <!-- Open Graph (WhatsApp, Facebook etc) -->
+    <meta property="og:title" content="Consulta dispositivo FRP via IMEI" />
+    <meta
+      property="og:description"
+      content="Verifique se o dispositivo suporta FRP via IMEI antes de fazer o pedido."
+    />
+    <meta
+      property="og:image"
+      content="https://i.postimg.cc/P5tM445M/logo2.png"
+    />
+    <meta property="og:url" content="https://consultafrp.netlify.app/" />
+    <meta property="og:type" content="website" />
+    <link rel="shortcut icon" href="img/logo2.png" type="image/x-icon" />
+
+    <link rel="stylesheet" href="consulta.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- MENU PRINCIPAL com nome Devices e botão lua/sol -->
+      <nav class="navbar">
+        <div class="logo-devices">📱 Devices <span>472</span></div>
+        <button
+          class="theme-toggle"
+          id="themeToggleBtn"
+          aria-label="Alternar tema"
+        >
+          🌙
+          <!-- começa com lua — tema claro padrão (lua significa "mudar para escuro") -->
+        </button>
+      </nav>
+
+      <div class="header">
+        <h1>Consulta dispositivo FRP via IMEI Suportando</h1>
+        <div class="subhead">pesquise por modelo ou variante</div>
+      </div>
+
+      <div class="search-wrapper">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="🔍 Ex: Galaxy S24, SM-S928B, A54"
+        />
+      </div>
+      <div class="result-count" id="resultCount">
+        Mostrando 472 dispositivos
+      </div>
+
+      <div class="devices-grid" id="devicesGrid"></div>
+      <div class="footer-note">✅ cartões compactos · tema dinâmico</div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
