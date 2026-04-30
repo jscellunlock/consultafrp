@@ -2223,6 +2223,19 @@
       themeBtn.innerHTML = "🌙"; // lua (representa escuro)
     }
     darkMode = isDark;
+    // Salvar a preferência do tema no localStorage
+    localStorage.setItem("themePreference", isDark ? "dark" : "light");
+  }
+
+  // Carregar a preferência de tema salva ao iniciar
+  const savedTheme = localStorage.getItem("themePreference");
+  if (savedTheme === "dark") {
+    setTheme(true);
+  } else if (savedTheme === "light") {
+    setTheme(false);
+  } else {
+    // Se não houver preferência salva, padrão é claro
+    setTheme(false);
   }
 
   // alterna tema no clique
@@ -2230,18 +2243,15 @@
     setTheme(!darkMode);
   });
 
-  // garante tema inicial claro (lua aparece)
-  setTheme(false);
-
   // renderização dos cards (idêntica ao anterior)
   function render(filterText = "") {
     const term = filterText.trim().toLowerCase();
     const filtered = term
       ? devices.filter(
-          (d) =>
-            d.model.toLowerCase().includes(term) ||
-            d.variants.toLowerCase().includes(term),
-        )
+        (d) =>
+          d.model.toLowerCase().includes(term) ||
+          d.variants.toLowerCase().includes(term),
+      )
       : devices;
 
     resultCountSpan.innerText = `Mostrando ${filtered.length} ${filtered.length === 1 ? "dispositivo" : "dispositivos"}`;
@@ -2259,17 +2269,17 @@
         dev.status === "Supported" ? "badge-supported" : "badge-not-supported";
       const icon = dev.status === "Supported" ? "✅" : "❌";
       html += `
-                        <div class="device-card ${statusClass}">
-                            <div class="model-name">${dev.model}</div>
-                            <div class="variants-block">
-                                <div class="variants-label">Variantes</div>
-                                <div class="variants-list">${dev.variants}</div>
-                            </div>
-                            <div class="status-badge">
-                                <span class="${badgeClass}">${icon} ${dev.status}</span>
-                            </div>
-                        </div>
-                    `;
+                          <div class="device-card ${statusClass}">
+                              <div class="model-name">${dev.model}</div>
+                              <div class="variants-block">
+                                  <div class="variants-label">Variantes</div>
+                                  <div class="variants-list">${dev.variants}</div>
+                              </div>
+                              <div class="status-badge">
+                                  <span class="${badgeClass}">${icon} ${dev.status}</span>
+                              </div>
+                          </div>
+                      `;
     });
     gridEl.innerHTML = html;
   }
