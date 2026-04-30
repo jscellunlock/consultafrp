@@ -11,7 +11,9 @@
     sans-serif;
 }
 
-/* Variáveis do tema claro (padrão) */
+/* =========================
+   TEMA CLARO
+========================= */
 :root {
   --bg-body: #f4f6fb;
   --bg-card: #ffffff;
@@ -31,11 +33,13 @@
   --shadow-sm: 0 8px 18px rgba(0, 0, 0, 0.04);
   --header-logo: #1a4cff;
   --footer-border: #dde3ea;
-  --input-bg: white;
+  --input-bg: #ffffff;
   --input-border: #e0e7ef;
 }
 
-/* Tema escuro (quando a classe .dark-mode no body) */
+/* =========================
+   TEMA ESCURO
+========================= */
 body.dark-mode {
   --bg-body: #0f172a;
   --bg-card: #1e293b;
@@ -57,9 +61,11 @@ body.dark-mode {
   --footer-border: #2e3a4c;
   --input-bg: #1e293b;
   --input-border: #3b4a5e;
-  --input-text: #f1f5f9;
 }
 
+/* =========================
+   BODY
+========================= */
 body {
   background: var(--bg-body);
   padding: 2rem 1.5rem;
@@ -73,11 +79,13 @@ body {
 }
 
 .container {
-  max-width: 1600px;
   width: 100%;
+  max-width: 1600px;
 }
 
-/* ---------- MENU PRINCIPAL ---------- */
+/* =========================
+   NAVBAR
+========================= */
 .navbar {
   display: flex;
   align-items: center;
@@ -91,6 +99,37 @@ body {
   transition: background 0.2s;
 }
 
+/* grupo esquerdo */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: nowrap;
+}
+
+/* botão voltar */
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.4rem;
+  border-radius: 40px;
+  background: var(--header-logo);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+  transition: 0.2s ease;
+}
+
+.back-button:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+
+/* logo */
 .logo-devices {
   font-size: 1.6rem;
   font-weight: 650;
@@ -100,29 +139,27 @@ body {
 
 .logo-devices span {
   background: var(--header-logo);
-  color: white;
+  color: #ffffff;
   font-size: 0.9rem;
   padding: 0.2rem 1rem;
   border-radius: 30px;
   margin-left: 0.6rem;
 }
 
-/* botão de tema (lua / sol) */
+/* botão tema */
 .theme-toggle {
-  background: none;
-  border: none;
+  background: var(--variants-bg);
+  border: 1px solid var(--border-light);
   cursor: pointer;
   font-size: 2rem;
   line-height: 1;
   padding: 0.4rem 0.8rem;
   border-radius: 40px;
-  background: var(--variants-bg);
-  border: 1px solid var(--border-light);
-  transition: 0.15s;
   color: var(--text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 0.15s;
 }
 
 .theme-toggle:hover {
@@ -130,7 +167,9 @@ body {
   background: var(--border-light);
 }
 
-/* cabeçalho */
+/* =========================
+   HEADER
+========================= */
 .header {
   text-align: left;
   margin-bottom: 1.5rem;
@@ -149,9 +188,11 @@ body {
   padding-left: 1rem;
 }
 
-/* search */
+/* =========================
+   BUSCA
+========================= */
 .search-wrapper {
-  margin: 1.5rem 0 1.5rem 0;
+  margin: 1.5rem 0;
 }
 
 #searchInput {
@@ -159,12 +200,12 @@ body {
   max-width: 600px;
   padding: 0.85rem 1.5rem;
   font-size: 1rem;
-  border: none;
   border-radius: 50px;
   background: var(--input-bg);
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--input-border);
   color: var(--text-primary);
+  outline: none;
   transition: 0.2s;
 }
 
@@ -173,13 +214,15 @@ body {
 }
 
 .result-count {
-  margin: -0.5rem 0 1.2rem 0;
+  margin: -0.5rem 0 1.2rem;
   font-size: 0.9rem;
   color: var(--text-secondary);
   font-weight: 500;
 }
 
-/* grid de cartões compactos (4 colunas) */
+/* =========================
+   GRID DE DISPOSITIVOS
+========================= */
 .devices-grid {
   display: flex;
   flex-wrap: wrap;
@@ -190,10 +233,9 @@ body {
 .device-card {
   flex: 0 0 auto;
   width: calc(25% - 0.75rem);
-  max-width: 100%;
   background: var(--bg-card);
   border-radius: 20px;
-  padding: 1rem 1rem 0.9rem 1rem;
+  padding: 1rem;
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border-card);
   border-left: 4px solid transparent;
@@ -219,8 +261,9 @@ body {
   word-break: break-word;
 }
 
+/* variantes */
 .variants-block {
-  margin: 0.5rem 0 0.5rem 0;
+  margin: 0.5rem 0;
 }
 
 .variants-label {
@@ -244,15 +287,29 @@ body {
   font-family: "SF Mono", monospace;
 }
 
+/* scrollbar */
+.variants-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.variants-list::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+.variants-list::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 6px;
+}
+
+/* badges */
 .status-badge {
   margin-top: 0.3rem;
   display: flex;
   align-items: center;
 }
 
-.badge-supported {
-  color: var(--badge-supported-text);
-  background: var(--badge-supported-bg);
+.badge-supported,
+.badge-not-supported {
   padding: 0.2rem 1rem;
   border-radius: 30px;
   font-size: 0.85rem;
@@ -260,31 +317,21 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.2rem;
+}
+
+.badge-supported {
+  color: var(--badge-supported-text);
+  background: var(--badge-supported-bg);
 }
 
 .badge-not-supported {
   color: var(--badge-not-text);
   background: var(--badge-not-bg);
-  padding: 0.2rem 1rem;
-  border-radius: 30px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.2rem;
 }
 
-.variants-list::-webkit-scrollbar {
-  width: 4px;
-}
-.variants-list::-webkit-scrollbar-track {
-  background: var(--scrollbar-track);
-}
-.variants-list::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-thumb);
-  border-radius: 6px;
-}
-
+/* =========================
+   SEM RESULTADOS
+========================= */
 .no-results {
   background: var(--bg-card);
   border-radius: 30px;
@@ -295,6 +342,9 @@ body {
   color: var(--text-soft);
 }
 
+/* =========================
+   RODAPÉ
+========================= */
 .footer-note {
   margin-top: 2.5rem;
   color: var(--text-soft);
@@ -304,7 +354,24 @@ body {
   text-align: center;
 }
 
-/* responsividade */
+/* selo lateral */
+.powered-jscellunlock {
+  position: fixed;
+  right: 0;
+  top: 98%;
+  transform: translateY(-29%);
+  background: #0f3460;
+  color: #ffffff;
+  padding: 4px 8px;
+  font-size: 13px;
+  font-weight: bold;
+  z-index: 9999;
+  border-radius: 5px 0 0 5px;
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
 @media screen and (max-width: 1100px) {
   .device-card {
     width: calc(33.333% - 0.7rem);
@@ -318,29 +385,39 @@ body {
 }
 
 @media screen and (max-width: 550px) {
-  .device-card {
-    width: 100%;
-  }
   body {
     padding: 1.5rem 1rem;
   }
+
+  .device-card {
+    width: 100%;
+  }
+
   .navbar {
-    padding: 0.6rem 1.2rem;
+    padding: 0.7rem 1rem;
   }
+
+  .nav-left {
+    gap: 0.6rem;
+  }
+
+  .back-button {
+    padding: 0.55rem 1rem;
+    font-size: 0.85rem;
+  }
+
   .logo-devices {
-    font-size: 1.4rem;
+    font-size: 1.15rem;
   }
-}
-.powered-jscellunlock {
-  position: fixed;
-  right: 0;
-  top: 98%;
-  transform: translateY(-29%);
-  background: #0f3460;
-  color: #fff;
-  padding: 0px 0px;
-  font-size: 13px;
-  font-weight: bold;
-  z-index: 9999;
-  border-radius: 0 5px 5px 0;
+
+  .logo-devices span {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.7rem;
+    margin-left: 0.4rem;
+  }
+
+  .theme-toggle {
+    font-size: 1.6rem;
+    padding: 0.35rem 0.65rem;
+  }
 }
